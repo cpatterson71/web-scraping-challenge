@@ -1,0 +1,46 @@
+!<DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mars News</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="card bg-dark text-white">
+    <!-- image scraped from mars_image-->
+    <img src="{{ mars_data.Mars_Image }}" class="card-img" alt="">
+    <div class="card-img-overlay">
+    </div>
+  </div>
+    <div class="jumbotron text-center">
+      <h1>Mars News</h1>
+      <p> Get the Latest News, Pictures, and Facts about Mars</p>
+      <p><a class="btn btn-primary btn-lg" href="/mars_scraper" role="button">Get the Latest Information!</a></p>
+    </div>
+  <div class="container">
+    <div class="row">
+      <!-- Card to hold the news-->
+      <div class='card-group'>
+        <div class='card boder-0'>
+          <div class="card_body">
+            <h2 class="card-title text-primary">Latest News</h2>
+            <p class='card-text'><b>{{ mars_data.Mars_News }}</b></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- This row is the facts table-->
+    <div class='row'>
+      <div class="col-md-12 col-med-offset-2 mt-4">
+        <h2 class= "text-primary text-center">Mars Facts</h2>
+        <table id = 'mytable' class="table table-borderless table-stripped mytable">
+          <thead class='mytable-thread'></thead>
+        <tbody class ="mytable-thead-th table-striped"> {{ mars_data.Mars_Facts | safe }}"</tbody>
+        </table>
+      </div>
+    </div>
+  </div>
