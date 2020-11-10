@@ -139,8 +139,6 @@ mars_data = {
 
 return mars_data
 
-if__name__=="__main__":
-    data = mars_scraper()
-    print(data)
+
 
 
