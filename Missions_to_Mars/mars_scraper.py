@@ -35,12 +35,14 @@ def nasa_news():
     for item in news_title:
         articles.append(item.get_text())
         
-    for paragraph in news_p:
+    for paragraphs in news_p:
         paragraphs.append(item.get_text())
     
     return [*zip(articles, paragraphs)]
+    return html(table)
+        
     
-nasa_news()
+# nasa_news()
 
 
 # %%
@@ -63,8 +65,8 @@ def mars_image():
     img_string = img_source.split("'")[1]
     base_url = 'https://jpl.nasa.gov'
     final_image_url = base_url + img_string
-    #print(final_image_url)
-mars_image()
+    return final_image_url
+
 
 # %% [markdown]
 # # Scraping table from Mars Facts using Pandas
@@ -74,8 +76,8 @@ def mars_facts():
     url = 'https://space-facts.com/mars/'
     facts_table = pd.read_html(url)
     mars_table = facts_table[0].to_json(orient='records')
-    #print(mars_table)
-mars_facts()
+    return 
+# mars_facts()
 
 # %% [markdown]
 # # Getting high-res pictures of Mars Hemispheres
@@ -123,8 +125,8 @@ def mars_hemi():
     while i < 4:
         hemi_image_urls.append({'title': title[i], 'image_url': image_url[i]})
         i += 1
-    # print(hemi_image_urls)
-mars_hemi()
+    return hemi_image_urls
+# mars_hemi()
 
 
 # %%
@@ -137,7 +139,7 @@ mars_data = {
     "Mars_Hemis": mars_hemi
 }
 
-return mars_data
+return nasa_news
 
 
 
